@@ -1,0 +1,1 @@
+if (pinInput.value === "1234")

@@ -1,0 +1,1 @@
+fetch('https://nelsonbravosalas-creator.github.io/INFORMES-EECOL/database.json')
