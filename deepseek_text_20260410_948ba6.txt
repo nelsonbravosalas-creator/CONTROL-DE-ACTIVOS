@@ -1,9 +1,0 @@
-INFORMES-EECOL/
-├── index.html          # Aplicación principal CMMS
-├── database.json       # Base de datos de equipos
-├── manuales/           # (opcional) Carpeta para PDFs
-│   ├── compresor_atlas.pdf
-│   ├── hvac_trane.pdf
-│   └── motor_weg.pdf
-├── fichas/             # (opcional) Fichas técnicas
-└── informes/           # (opcional) Informes de servicio
