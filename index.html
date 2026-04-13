@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
-    <title>NBYB CMMS - Control de Activos Industrial</title>
+    <title>NBYB - Control de Activos Industrial</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <script src="https://cdn.sheetjs.com/xlsx-0.20.2/package/dist/xlsx.full.min.js"></script>
@@ -277,7 +277,7 @@ function exportarInventarioExcel() {
         const row={
             'TAG_ID':e.tag, 'REGIÓN':getRegionFromTag(e.tag), 'UBICACIÓN':e.lugarInstalacion, 'MARCA':e.marca, 'MODELO':e.modelo,
             'ESTADO':e.estado, 'CAPACIDAD_BTU':e.capacidad, 'SERIE':e.serie, 'ÚLTIMO MANTENIMIENTO':e.ultimoMantenimiento,
-            'PRÓXIMO MANTENIMIENTO':e.proximoMantenimiento, 'REFRIGERANTE':e.refrigerante, 'OBSERVACIONES':e.observaciones
+            'PRÓXIMO MANTENIMIENTO':e.proximoMantenimiento, 'REFRIGERANTE':e.refrigerante, 'OBSERVACIONES':e.observaciones, 'TECNICO':e.Tecnico     
         };
         customFields.forEach(cf=>{ row[cf.fieldLabel]=e[cf.fieldKey]||''; });
         return row;
@@ -323,7 +323,7 @@ function importarExcel(file) {
 function mapearEstado(s){ const u=String(s||'').toUpperCase(); if(u.includes('OPERATIVO')) return 'OPERATIVO'; if(u.includes('FALLA')) return 'EN FALLA'; if(u.includes('MANTENIMIENTO')) return 'MANTENIMIENTO'; return 'Con Observaciones'; }
 function formatearFecha(f){ if(!f) return '-'; if(typeof f==='string' && f.includes('-')){ const p=f.split('-'); if(p.length===3) return `${p[2]}-${p[1]}-${p[0]}`; } return f; }
 function descargarPlantillaExcel(){
-    const baseCols=['TAG_ID','TIPO_SERVICIO','FECHA_ULTIMO_MANTO','UBICACION','MARCA','MODELO','SERIE','ESTADO','CAPACIDAD_BTU','DRENAJE','MANUAL_URL','FICHA_URL','OBSERVACIONES','REFRIGERANTE'];
+    const baseCols=['TAG_ID','TIPO_SERVICIO','FECHA_ULTIMO_MANTO','UBICACION','MARCA','MODELO','SERIE','ESTADO','CAPACIDAD_BTU','DRENAJE','MANUAL_URL','FICHA_URL','OBSERVACIONES','REFRIGERANTE','TECNICO'];
     const customCols=customFields.map(cf=>cf.fieldLabel);
     const allCols=[...baseCols,...customCols];
     const ejemplo={}; allCols.forEach(c=>ejemplo[c]='');
